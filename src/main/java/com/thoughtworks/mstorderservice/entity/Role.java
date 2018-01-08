@@ -9,11 +9,9 @@ import java.util.List;
 
 @Setter
 @Getter
-@Entity
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "t_role")
 public class Role implements Serializable {
 
     public enum Symbol {
@@ -37,7 +35,7 @@ public class Role implements Serializable {
 
     private String name;
 
-    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "t_role_privilege", joinColumns = @JoinColumn(name = "role_symbol", referencedColumnName = "symbol"),
             inverseJoinColumns = @JoinColumn(name = "privilege_symbol", referencedColumnName = "symbol"))
     private List<Privilege> privileges = new ArrayList<>();

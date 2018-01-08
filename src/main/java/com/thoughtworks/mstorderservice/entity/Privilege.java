@@ -7,12 +7,9 @@ import java.io.Serializable;
 
 @Setter
 @Getter
-@Entity
-@ToString
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "t_privilege")
 public class Privilege implements Serializable {
 
     public enum Symbol {
