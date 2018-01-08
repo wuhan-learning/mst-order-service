@@ -28,16 +28,10 @@ public class Role implements Serializable {
         }
     }
 
-    @Id
-    @Column(unique = true)
-    @Enumerated(EnumType.STRING)
     private Symbol symbol;
 
     private String name;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinTable(name = "t_role_privilege", joinColumns = @JoinColumn(name = "role_symbol", referencedColumnName = "symbol"),
-            inverseJoinColumns = @JoinColumn(name = "privilege_symbol", referencedColumnName = "symbol"))
     private List<Privilege> privileges = new ArrayList<>();
 
     public void setSymbol(Symbol symbol) {

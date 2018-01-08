@@ -29,9 +29,6 @@ public class Privilege implements Serializable {
         }
     }
 
-    @Id
-    @Column(unique = true)
-    @Enumerated(EnumType.STRING)
     private Symbol symbol;
 
     private String name;
