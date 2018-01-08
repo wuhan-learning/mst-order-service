@@ -19,7 +19,7 @@ spring:
       validation-query: SELECT 1
   redis:
     host: ${SPRING_REDIS_HOST:127.0.0.1}
-    port: 6378
+    port: 6379
     database: ${SPRING_REDIS_DATABSE:5}
     pool:
       maxActive: 500
