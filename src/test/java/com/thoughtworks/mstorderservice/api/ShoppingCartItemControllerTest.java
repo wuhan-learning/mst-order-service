@@ -23,9 +23,6 @@ class ShoppingCartItemControllerTest extends APIBaseTest {
             .contentType(MediaType.APPLICATION_JSON_UTF8)
             .content(JsonUtils.marshal(item)))
             .andExpect(status().isCreated())
-            .andExpect(result -> {
-                System.out.println("----------- " + result.getResponse().getContentAsString());
-            })
             .andExpect(jsonPath("$.id").isNotEmpty())
             .andExpect(jsonPath("$.user_id").value(item.getUserId()))
             .andExpect(jsonPath("$.goods_id").value(item.getGoodsId()));
