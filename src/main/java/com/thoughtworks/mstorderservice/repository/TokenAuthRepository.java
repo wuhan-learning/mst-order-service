@@ -1,4 +1,4 @@
-package com.thoughtworks.mstorderservice.Repository;
+package com.thoughtworks.mstorderservice.repository;
 
 public interface TokenAuthRepository {
 

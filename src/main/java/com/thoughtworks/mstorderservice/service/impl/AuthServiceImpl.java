@@ -1,6 +1,6 @@
 package com.thoughtworks.mstorderservice.service.impl;
 
-import com.thoughtworks.mstorderservice.Repository.TokenAuthRepository;
+import com.thoughtworks.mstorderservice.repository.TokenAuthRepository;
 import com.thoughtworks.mstorderservice.configuration.security.JWTUser;
 import com.thoughtworks.mstorderservice.exception.InvalidCredentialException;
 import com.thoughtworks.mstorderservice.service.AuthService;
@@ -8,7 +8,6 @@ import com.thoughtworks.mstorderservice.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;

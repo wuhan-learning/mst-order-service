@@ -1,6 +1,6 @@
 package com.thoughtworks.mstorderservice.configuration.security;
 
-import com.thoughtworks.mstorderservice.Repository.TokenAuthRepository;
+import com.thoughtworks.mstorderservice.repository.TokenAuthRepository;
 import com.thoughtworks.mstorderservice.util.StringUtils;
 import io.jsonwebtoken.Jwts;
 import org.springframework.beans.factory.annotation.Value;
