@@ -1,4 +1,4 @@
-package com.thoughtworks.mstorderservice.Controller;
+package com.thoughtworks.mstorderservice.controller;
 
 import com.thoughtworks.mstorderservice.dto.OrderDTO;
 import com.thoughtworks.mstorderservice.service.OrderService;

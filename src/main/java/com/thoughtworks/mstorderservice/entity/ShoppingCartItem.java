@@ -23,7 +23,7 @@ public class ShoppingCartItem {
     @Id
     @JsonProperty("id")
     @GeneratedValue
-    private Long id;
+    private long id;
 
     @JsonProperty("user_id")
     @Column(name = "user_id")
