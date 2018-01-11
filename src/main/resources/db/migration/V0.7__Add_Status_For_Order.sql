@@ -1,0 +1,1 @@
+ALTER TABLE `t_order` add status VARCHAR(50);

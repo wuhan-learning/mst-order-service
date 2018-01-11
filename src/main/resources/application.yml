@@ -44,3 +44,5 @@ flyway:
 
 good_service:
   host: 127.0.0.1
+
+serviceTokenKey: ''
