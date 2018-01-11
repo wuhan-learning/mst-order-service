@@ -1,16 +1,11 @@
 package com.thoughtworks.mstorderservice.entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.*;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
 
 @Getter
 @Setter
@@ -21,15 +16,21 @@ import lombok.ToString;
 @Entity(name = "t_shopping_cart_item")
 public class ShoppingCartItem {
     @Id
-    @JsonProperty("id")
     @GeneratedValue
     private long id;
 
-    @JsonProperty("user_id")
-    @Column(name = "user_id")
-    private String userId;
+    @Column(name = "user_name")
+    private String userName;
 
-    @JsonProperty("goods_id")
     @Column(name = "goods_id")
-    private Long goodsId;
+    private long goodsId;
+
+    @Column(name = "quantity")
+    private long quantity;
+
+    @Column(name = "created_at")
+    private long createdAt;
+
+    @Column(name = "updated_at")
+    private Long updatedAt;
 }
