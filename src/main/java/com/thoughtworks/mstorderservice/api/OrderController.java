@@ -1,4 +1,4 @@
-package com.thoughtworks.mstorderservice.controller;
+package com.thoughtworks.mstorderservice.api;
 
 import com.thoughtworks.mstorderservice.dto.OrderDTO;
 import com.thoughtworks.mstorderservice.service.OrderService;
@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value = "/api/order")
 public class OrderController {
-
     @Autowired
     private OrderService orderService;
 

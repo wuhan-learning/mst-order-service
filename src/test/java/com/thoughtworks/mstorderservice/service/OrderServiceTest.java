@@ -28,7 +28,7 @@ class OrderServiceTest {
     void should_create_order_successful() {
         Order newOrder = new Order();
         newOrder.setId(1);
-        newOrder.setOrderDetail("detail");
+        newOrder.setDetail("detail");
         when(orderRepository.save(any(Order.class))).thenReturn(newOrder);
 
         OrderDTO orderDTO = new OrderDTO();

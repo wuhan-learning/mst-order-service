@@ -14,12 +14,13 @@ import java.util.Date;
 public class Order{
     @Id
     @GeneratedValue
-    private Integer id;
+    private long id;
 
-    @Column(name = "order_detail")
-    private String orderDetail;
+    private String number;
 
-    @Column(name = "updated_time")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date updated_time;
+    private long createdDate;
+
+    private long updatedDate;
+
+    private double totalPrice;
 }

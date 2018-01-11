@@ -1,5 +1,9 @@
 CREATE TABLE `t_order` (
-  `id` INT(11) NOT NULL PRIMARY KEY,
-  `order_detail` VARCHAR(255) NOT NULL,
-  `updated_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id`           BIGINT(20)   NOT NULL PRIMARY KEY,
+  `number`       VARCHAR(255) NOT NULL,
+  `created_date` BIGINT(20)   NOT NULL,
+  `updated_date` BIGINT(20) DEFAULT NULL,
+  `total_price`  DOUBLE     DEFAULT 0
+)
+  ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4;
