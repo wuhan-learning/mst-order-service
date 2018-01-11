@@ -12,7 +12,7 @@ public class OrderService {
     @Autowired
     private OrderRepository orderRepository;
 
-    public OrderDTO createOrder(OrderDTO orderDTO) {
+    public OrderDTO create(OrderDTO orderDTO) {
         Order order = new Order();
         order.setNumber(orderDTO.getNumber());
         Order savedOrder = orderRepository.save(order);

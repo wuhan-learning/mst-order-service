@@ -9,13 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/api/order")
+@RequestMapping(value = "/api/orders")
 public class OrderController {
+
     @Autowired
     private OrderService orderService;
 
-    @PostMapping()
-    public OrderDTO createOrder(@RequestBody OrderDTO request) {
-        return orderService.createOrder(request);
+    @PostMapping
+    public OrderDTO createOrder(@RequestBody OrderDTO orderDTO) {
+        return orderService.create(orderDTO);
     }
 }

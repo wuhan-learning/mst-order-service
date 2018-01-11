@@ -33,7 +33,7 @@ class OrderServiceTest {
 
         OrderDTO orderDTO = new OrderDTO();
         orderDTO.setOrderDetail("detail");
-        OrderDTO savedOrder = orderService.createOrder(orderDTO);
+        OrderDTO savedOrder = orderService.create(orderDTO);
         assertEquals("detail", savedOrder.getOrderDetail());
         verify(orderRepository, times(1)).save(any(Order.class));
     }

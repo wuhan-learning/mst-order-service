@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @Setter
 @Entity
 @Table(name = "t_order_item")
-public class OrderItems {
+public class OrderItem {
     @Id
     @GeneratedValue
     private long id;
