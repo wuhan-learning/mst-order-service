@@ -41,3 +41,6 @@ security:
 flyway:
   locations: db/migration
   enabled: true
+
+good_service:
+  host: 127.0.0.1
