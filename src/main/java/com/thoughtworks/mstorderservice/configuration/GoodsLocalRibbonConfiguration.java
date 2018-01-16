@@ -9,10 +9,10 @@ import org.springframework.context.annotation.Bean;
 public class GoodsLocalRibbonConfiguration {
 
     @Value("${goods_service.host:localhost:30002}")
-    String vehicleLocalServer;
+    private String localGoodsServer;
 
     @Bean
     public ServerList<Server> serverList() {
-        return new StaticServerList<>(new Server(vehicleLocalServer));
+        return new StaticServerList<>(new Server(localGoodsServer));
     }
 }
