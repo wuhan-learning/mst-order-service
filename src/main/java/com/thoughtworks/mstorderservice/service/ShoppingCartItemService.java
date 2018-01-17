@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
@@ -33,5 +34,20 @@ public class ShoppingCartItemService {
                         .userName(shoppingCartItem.getUserName())
                         .build())
                 .collect(Collectors.toList());
+    }
+
+    public ShoppingCartItemDTO addShoppingCartItem(ShoppingCartItem shoppingCartItem) {
+        ShoppingCartItem existedCartItem = shoppingCartItemRepository.findOneByUserNameAndGoodsId(shoppingCartItem.getUserName(), shoppingCartItem.getGoodsId());
+        if (Objects.isNull(existedCartItem)) {
+            existedCartItem = save(shoppingCartItem);
+        }
+        return ShoppingCartItemDTO.builder()
+                .id(shoppingCartItem.getId())
+                .userName(existedCartItem.getUserName())
+                .goodsId(existedCartItem.getGoodsId())
+                .quantity(existedCartItem.getQuantity())
+                .createdAt(existedCartItem.getCreatedAt())
+                .updatedAt(existedCartItem.getUpdatedAt())
+                .build();
     }
 }
