@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-@FeignClient(value = "${good_service.host}")
+@FeignClient("${goods_service.host}")
 public interface GoodsClient {
 
     @GetMapping("/api/goods")
-    List<GoodsDTO> queryGoods(@RequestParam List<Long> goodsIds);
+    List<GoodsDTO> queryGoods(@RequestParam("goods_ids") List<Long> goodsIds);
 }

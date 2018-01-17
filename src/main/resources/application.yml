@@ -42,7 +42,22 @@ flyway:
   locations: db/migration
   enabled: true
 
-good_service:
-  host: 127.0.0.1
+goods_service:
+  host: ${GOODS_SERViCE_HOST:http://localhost:8092}
 
 serviceTokenKey: ''
+
+headers:
+    client-version: X-CLIENT-VERSION
+    request-id: X-SERVICE-REQUEST-ID
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 6000
+feign:
+  httpclient:
+    connection-timeout: 6000
