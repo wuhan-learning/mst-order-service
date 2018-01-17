@@ -28,9 +28,9 @@ public class ShoppingCartItem {
     @Column(name = "quantity")
     private long quantity;
 
-    @Column(name = "created_at")
-    private long createdAt;
+    @Column(name = "created_date")
+    private long createdDate;
 
-    @Column(name = "updated_at")
-    private Long updatedAt;
+    @Column(name = "updated_date")
+    private long updatedDate;
 }

@@ -12,5 +12,5 @@ import java.util.List;
 public interface GoodsClient {
 
     @GetMapping("/api/goods")
-    List<GoodsDTO> queryGoods(@RequestParam List<String> goodsIds);
+    List<GoodsDTO> queryGoods(@RequestParam List<Long> goodsIds);
 }

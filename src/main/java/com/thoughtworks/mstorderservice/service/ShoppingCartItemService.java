@@ -1,5 +1,7 @@
 package com.thoughtworks.mstorderservice.service;
 
+import com.thoughtworks.mstorderservice.client.GoodsClient;
+import com.thoughtworks.mstorderservice.dto.GoodsDTO;
 import com.thoughtworks.mstorderservice.dto.ShoppingCartItemDTO;
 import com.thoughtworks.mstorderservice.entity.ShoppingCartItem;
 import com.thoughtworks.mstorderservice.repository.ShoppingCartItemRepository;
@@ -7,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
@@ -14,7 +17,10 @@ import java.util.stream.Collectors;
 public class ShoppingCartItemService {
 
     @Autowired
-    ShoppingCartItemRepository shoppingCartItemRepository;
+    private ShoppingCartItemRepository shoppingCartItemRepository;
+
+    @Autowired
+    private GoodsClient goodsClient;
 
     public ShoppingCartItem save(ShoppingCartItem shoppingCartItem) {
         return shoppingCartItemRepository.save(shoppingCartItem);
@@ -23,17 +29,29 @@ public class ShoppingCartItemService {
     public List<ShoppingCartItemDTO> findShoppingCartDTOs(String userName) {
         List<ShoppingCartItem> shoppingCartItems = shoppingCartItemRepository.findAllByUserName(userName);
 
-        return shoppingCartItems
+        List<ShoppingCartItemDTO> shoppingCartItemDTOS = shoppingCartItems
                 .stream()
                 .map(shoppingCartItem -> ShoppingCartItemDTO.builder()
                         .id(shoppingCartItem.getId())
-                        .createdAt(shoppingCartItem.getCreatedAt())
+                        .createdDate(shoppingCartItem.getCreatedDate())
                         .quantity(shoppingCartItem.getQuantity())
                         .goodsId(shoppingCartItem.getGoodsId())
-                        .updatedAt(shoppingCartItem.getUpdatedAt())
+                        .updatedDate(shoppingCartItem.getUpdatedDate())
                         .userName(shoppingCartItem.getUserName())
                         .build())
                 .collect(Collectors.toList());
+        List<Long> goodIds = shoppingCartItemDTOS.stream().map(item -> item.getGoodsId()).collect(Collectors.toList());
+        List<GoodsDTO> goodsDTOS = goodsClient.queryGoods(goodIds);
+        Map<Long, GoodsDTO> goodsIdDTOs = goodsDTOS.stream().collect(Collectors.toMap(GoodsDTO::getId, goodsDTO -> goodsDTO));
+        shoppingCartItemDTOS.forEach(shoppingCartItemDTO -> {
+            GoodsDTO goodsDTO = goodsIdDTOs.get(shoppingCartItemDTO.getGoodsId());
+            shoppingCartItemDTO.setGoodsName(goodsDTO.getName());
+            shoppingCartItemDTO.setDescription(goodsDTO.getDescription());
+            shoppingCartItemDTO.setPrice(goodsDTO.getPrice());
+            shoppingCartItemDTO.setStockAmount(goodsDTO.getStockAmount());
+        });
+
+        return shoppingCartItemDTOS;
     }
 
     public ShoppingCartItemDTO addShoppingCartItem(ShoppingCartItem shoppingCartItem) {
@@ -46,8 +64,8 @@ public class ShoppingCartItemService {
                 .userName(existedCartItem.getUserName())
                 .goodsId(existedCartItem.getGoodsId())
                 .quantity(existedCartItem.getQuantity())
-                .createdAt(existedCartItem.getCreatedAt())
-                .updatedAt(existedCartItem.getUpdatedAt())
+                .createdDate(existedCartItem.getCreatedDate())
+                .updatedDate(existedCartItem.getUpdatedDate())
                 .build();
     }
 }

@@ -3,6 +3,6 @@ CREATE TABLE `t_shopping_cart_item` (
   `user_name`  VARCHAR(255) NOT NULL,
   `goods_id`   BIGINT(20)   NOT NULL,
   `quantity`   BIGINT(20)   NOT NULL,
-  `created_at` BIGINT(20)   NOT NULL,
-  `updated_at` BIGINT(20)
+  `created_date` BIGINT(20)   NOT NULL,
+  `updated_date` BIGINT(20)
 );

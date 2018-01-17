@@ -20,9 +20,18 @@ public class ShoppingCartItemDTO {
     @JsonProperty("goods_id")
     private long goodsId;
 
-    @JsonProperty("created_at")
-    private long createdAt;
+    @JsonProperty("created_date")
+    private long createdDate;
 
-    @JsonProperty("updated_at")
-    private Long updatedAt;
+    private String goodsName;
+
+    @JsonProperty("updated_date")
+    private long updatedDate;
+
+    private String description;
+
+    private double price;
+
+    private long stockAmount;
+
 }
