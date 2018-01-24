@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-@FeignClient("${goods_service.host}")
+@FeignClient("${goods_service.name}")
 public interface GoodsClient {
 
     @GetMapping("/api/goods")

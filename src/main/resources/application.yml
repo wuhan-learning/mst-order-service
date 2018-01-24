@@ -45,6 +45,7 @@ flyway:
 
 goods_service:
   host: ${GOODS_SERViCE_HOST:http://localhost:8092}
+  name: mst-goods-service
 
 serviceTokenKey: Bearer eyJhbGciOiJIUzUxMiJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6IlNZU1RFTV9BRE1JTiIsInByaXZpbGVnZXMiOlsiQ1JFQVRFX1VTRVIiLCJVUERBVEVfVVNFUiIsIlJFVFJJVkVfVVNFUiIsIkRFTEVURV9VU0VSIl0sImV4cCI6NjE1MTU2NDk1NzZ9.jP7P4c5tRGQfVyFlJA6Ac_mCOGUNXCtz7-iNY0NkdSWhia4g-mnAgEKWlZBDdfcrOD7vStxc9hSrW4i7Dmr9Yw
 
