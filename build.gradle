@@ -32,6 +32,13 @@ configurations {
     providedRuntime
 }
 
+ext {
+    springCloudVersion = 'Edgware.RELEASE'
+    junit5Version = "5.0.2"
+    junitVintageVersion = "4.12.2"
+    junitPlatformVersion = "1.0.2"
+}
+
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-actuator')
     compile'org.springframework.cloud:spring-cloud-starter-config'
@@ -65,20 +72,22 @@ dependencies {
     testCompile('org.springframework.security:spring-security-test')
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile('org.springframework.security:spring-security-test')
-    testCompile('org.junit.jupiter:junit-jupiter-api:5.0.2')
-    testCompile('org.junit.jupiter:junit-jupiter-engine:5.0.2')
-    testCompile('org.junit.jupiter:junit-jupiter-params:5.0.2')
-    testCompile('org.junit.platform:junit-platform-launcher:1.0.2')
-    testCompile('org.junit.platform:junit-platform-runner:1.0.2')
-    testCompile('com.github.sbrannen:spring-test-junit5:1.0.2')
 
-    testCompile('org.powermock:powermock-module-junit4:1.6.5')
-    testCompile('org.powermock:powermock-api-mockito:1.6.5')
+    testCompile('org.springframework.cloud:spring-cloud-starter-contract-stub-runner')
+
+    testCompile("org.junit.jupiter:junit-jupiter-api:${junit5Version}")
+    testCompile("org.junit.jupiter:junit-jupiter-params:${junit5Version}")
+    testCompile("org.junit.platform:junit-platform-runner:${junitPlatformVersion}")
+    testCompile("com.github.sbrannen:spring-test-junit5:${junitPlatformVersion}")
+
+    testRuntime("org.junit.platform:junit-platform-launcher:${junitPlatformVersion}")
+    testRuntime("org.junit.jupiter:junit-jupiter-engine:${junit5Version}")
+    testRuntime("org.junit.vintage:junit-vintage-engine:${junitVintageVersion}")
 }
 
 dependencyManagement {
     imports {
-        mavenBom "org.springframework.cloud:spring-cloud-dependencies:Edgware.RELEASE"
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
     }
 }
 

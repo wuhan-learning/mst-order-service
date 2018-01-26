@@ -68,4 +68,3 @@ execution:
 
 endpoints.health.sensitive: false
 management.security.enabled: false
-
