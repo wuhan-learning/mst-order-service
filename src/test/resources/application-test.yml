@@ -16,5 +16,5 @@ spring:
 
 stubrunner:
   ids:
-    - com.thoughtworks:mst-goods-service:0.0.1
-  work-offline: true
+    - com.thoughtworks:mst-goods-service:0.0.55
+  repository-root: http://10.202.129.3:8081/repository/mst-maven-public/
