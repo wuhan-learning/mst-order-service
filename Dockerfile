@@ -2,7 +2,7 @@ FROM openjdk:8-alpine
 
 MAINTAINER sjyuan <sjyuan@thoughtworks.com>
 
-COPY build/libs/*.jar /app/*.jar
+COPY build/libs/*.jar /app/
 
 WORKDIR /app
 
