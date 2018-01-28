@@ -4,7 +4,9 @@ services:
     stdin_open: true
     tty: true
     expose:
-     - "8080"
+     - "8091"
+    ports:
+     - "8091:8091"
     environment:
         SPRING_PROFILES_ACTIVE: qa
         DB_HOST: 10.202.129.3
